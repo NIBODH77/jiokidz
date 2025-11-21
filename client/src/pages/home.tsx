@@ -172,7 +172,9 @@ export default function Home() {
         <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-4 md:py-6">
           <div className="flex items-center justify-between mb-3 md:mb-4">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 uppercase tracking-wide">Featured</h2>
-            <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+            <Link href="/category/all-products">
+              <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+            </Link>
           </div>
           <div className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide pb-2">
             {products.slice(0, 8).map((product) => (
@@ -187,7 +189,9 @@ export default function Home() {
         <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-4 md:py-6">
           <div className="flex items-center justify-between mb-3 md:mb-4">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 uppercase tracking-wide">Best Sellers</h2>
-            <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+            <Link href="/category/all-products">
+              <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+            </Link>
           </div>
           <div className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide pb-2">
             {products.slice(2, 10).map((product) => (
@@ -207,9 +211,11 @@ export default function Home() {
                 <span className="bg-yellow-500 text-black text-xs font-bold px-2.5 md:px-3 py-1 uppercase tracking-wider mb-2 md:mb-3 inline-block rounded">Deal</span>
                 <h3 className="text-2xl md:text-4xl font-bold mb-2">Winter Sale</h3>
                 <p className="text-sm md:text-lg font-medium mb-3 md:mb-4">60% OFF All Winter Collections</p>
-                <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-4 md:px-6 py-2 md:py-3 text-xs md:text-base">
-                  Shop Now
-                </Button>
+                <Link href="/category/winter-wear">
+                  <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-4 md:px-6 py-2 md:py-3 text-xs md:text-base">
+                    Shop Now
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -222,7 +228,9 @@ export default function Home() {
                 <h2 className="text-xl md:text-2xl font-bold text-gray-800 uppercase">New Arrivals</h2>
                 <p className="text-xs md:text-sm text-gray-500 mt-0.5">Latest styles for your child</p>
             </div>
-            <Button variant="outline" className="text-xs md:text-sm font-bold uppercase">View All</Button>
+            <Link href="/category/all-products">
+              <Button variant="outline" className="text-xs md:text-sm font-bold uppercase">View All</Button>
+            </Link>
           </div>
           <div className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide pb-2">
              {products.slice(0, 8).map((product) => (
@@ -237,7 +245,9 @@ export default function Home() {
         <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-4 md:py-6 bg-gradient-to-br from-pink-50 to-blue-50 rounded-lg my-3 md:my-4">
           <div className="flex items-center justify-between mb-3 md:mb-4">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 uppercase">Top Picks</h2>
-            <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+            <Link href="/category/all-products">
+              <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+            </Link>
           </div>
           <div className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide pb-2">
             {products.slice(0, 8).map((product) => (
@@ -256,7 +266,9 @@ export default function Home() {
                 <h2 className="text-xl md:text-2xl font-bold mb-1">⚡ Flash Sale</h2>
                 <p className="text-sm md:text-base">Ending in: 02:45:30</p>
               </div>
-              <Button className="bg-white text-red-500 hover:bg-gray-100 font-bold text-xs md:text-sm w-full md:w-auto">View All Deals</Button>
+              <Link href="/category/all-products" className="w-full md:w-auto">
+                <Button className="bg-white text-red-500 hover:bg-gray-100 font-bold text-xs md:text-sm w-full md:w-auto">View All Deals</Button>
+              </Link>
             </div>
             <div className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide pb-2">
               {products.slice(0, 6).map((product) => (
