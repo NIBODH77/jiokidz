@@ -78,48 +78,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Advertisement Banner */}
-        <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-3 md:py-4">
-          <div className="relative overflow-hidden rounded-lg md:rounded-xl shadow-lg bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 p-6 md:p-10 cursor-pointer group transition-all hover:shadow-2xl">
-            <div className="absolute top-0 right-0 w-32 h-32 md:w-48 md:h-48 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-36 md:h-36 bg-white/10 rounded-full blur-2xl"></div>
-            
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
-              <div className="text-center md:text-left">
-                <div className="inline-block bg-yellow-400 text-black text-[10px] md:text-xs font-black px-3 py-1 rounded-full mb-2 md:mb-3 uppercase tracking-wider animate-pulse">
-                  Limited Time Offer
-                </div>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-2 md:mb-3 drop-shadow-lg">
-                  MEGA CLEARANCE SALE
-                </h2>
-                <p className="text-base md:text-xl lg:text-2xl font-bold text-white/95 mb-3 md:mb-4">
-                  Upto <span className="text-yellow-300 text-2xl md:text-3xl">80% OFF</span> on Kids Fashion
-                </p>
-                <p className="text-xs md:text-sm text-white/80 mb-4 md:mb-6">
-                  ⏰ Hurry! Sale ends in 48 hours | 🎁 Free shipping on all orders
-                </p>
-                <Button className="bg-white text-purple-600 hover:bg-yellow-400 hover:text-black font-black px-6 md:px-10 py-3 md:py-4 text-sm md:text-lg rounded-full shadow-xl transform transition-all hover:scale-105">
-                  SHOP NOW →
-                </Button>
-              </div>
-              
-              <div className="flex gap-3 md:gap-4">
-                <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[90px]">
-                  <div className="text-2xl md:text-4xl font-black text-white">12</div>
-                  <div className="text-[10px] md:text-xs text-white/90 font-semibold">HOURS</div>
-                </div>
-                <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[90px]">
-                  <div className="text-2xl md:text-4xl font-black text-white">34</div>
-                  <div className="text-[10px] md:text-xs text-white/90 font-semibold">MINS</div>
-                </div>
-                <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[90px]">
-                  <div className="text-2xl md:text-4xl font-black text-white">56</div>
-                  <div className="text-[10px] md:text-xs text-white/90 font-semibold">SECS</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        
 
         {/* Shop by Category - 4x4 Mobile & 4-per-screen Desktop */}
         <section className="max-w-[1400px] mx-auto px-0 md:px-4 py-4 md:py-6">
