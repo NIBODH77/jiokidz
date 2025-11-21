@@ -10,6 +10,8 @@ import { useState, useMemo } from "react";
 export default function CategoryPage() {
   const [match, params] = useRoute("/category/:slug");
   const slug = params?.slug ? decodeURIComponent(params.slug) : "all-products";
+  const searchParams = new URLSearchParams(window.location.search);
+  const searchQuery = searchParams.get("q") || "";
   
   const [selectedGender, setSelectedGender] = useState<string[]>([]);
   const [selectedPriceRange, setSelectedPriceRange] = useState<string[]>([]);
@@ -20,8 +22,16 @@ export default function CategoryPage() {
   const categoryProducts = useMemo(() => {
     let filtered = allProducts;
 
+    // Filter by search query if slug is 'search'
+    if (slug === "search" && searchQuery) {
+      filtered = filtered.filter(p => 
+        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.category.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
     // Filter by category slug
-    if (slug !== "all-categories" && slug !== "all-products") {
+    else if (slug !== "all-categories" && slug !== "all-products") {
       const categoryName = slug.replace(/-/g, ' ');
       filtered = filtered.filter(p => 
         p.category.toLowerCase().includes(categoryName.toLowerCase()) ||
@@ -260,7 +270,7 @@ export default function CategoryPage() {
           <div className="flex-1">
              <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 md:mb-6 gap-3 md:gap-2">
                 <h1 className="text-lg md:text-2xl font-display font-bold text-gray-900 capitalize">
-                  {slug.replace(/-/g, ' ')} 
+                  {slug === "search" ? `Results for "${searchQuery}"` : slug.replace(/-/g, ' ')} 
                   <span className="text-gray-400 text-sm md:text-lg font-normal ml-1 md:ml-2">({products.length} Items)</span>
                 </h1>
                 <div className="flex items-center gap-2 w-full md:w-auto">
@@ -297,6 +307,24 @@ export default function CategoryPage() {
              )}
           </div>
         </div>
+        
+        {/* Recommendations Section */}
+        {slug === "search" && (
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">Recommended for You</h2>
+            <div className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide pb-2">
+              {allProducts
+                .filter(p => !products.find(found => found.id === p.id)) // Exclude already found products
+                .sort(() => 0.5 - Math.random()) // Randomize
+                .slice(0, 4) // Take 4
+                .map((product) => (
+                  <div key={product.id} className="shrink-0 w-40 md:w-56">
+                    <ProductCard {...product} />
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
