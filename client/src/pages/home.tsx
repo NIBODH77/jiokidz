@@ -132,16 +132,16 @@ export default function Home() {
         {/* Promotional Banners */}
         <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-4 md:py-6">
            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-              <div className="relative overflow-hidden group cursor-pointer rounded-lg md:rounded-2xl shadow-md hover:shadow-lg transition-all duration-700 hover:-translate-y-1 aspect-[16/9] md:aspect-auto">
-                 <img src={diaperOfferImg} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" />
+              <div className="relative overflow-hidden group cursor-pointer rounded-lg md:rounded-2xl shadow-md hover:shadow-lg transition-all duration-700 hover:-translate-y-1 h-48 md:h-64 bg-gray-100">
+                 <img src={diaperOfferImg} loading="lazy" className="w-full h-full object-contain transition-all duration-1000 group-hover:scale-105" />
                  <div className="absolute top-2 md:top-4 left-2 md:left-4 bg-red-500 text-white text-[10px] md:text-xs font-bold px-2.5 md:px-3 py-1 rounded-full z-10">Limited</div>
                  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-3 md:p-6 z-10">
                      <h3 className="text-white font-bold text-lg md:text-2xl mb-1">Diaper Deals</h3>
                      <p className="text-white/80 font-medium text-xs md:text-sm">Up to 40% OFF</p>
                  </div>
               </div>
-              <div className="relative overflow-hidden group cursor-pointer rounded-lg md:rounded-2xl shadow-md hover:shadow-lg transition-all duration-700 hover:-translate-y-1 aspect-[16/9] md:aspect-auto">
-                 <img src={footwearSaleImg} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" />
+              <div className="relative overflow-hidden group cursor-pointer rounded-lg md:rounded-2xl shadow-md hover:shadow-lg transition-all duration-700 hover:-translate-y-1 h-48 md:h-64 bg-gray-100">
+                 <img src={footwearSaleImg} loading="lazy" className="w-full h-full object-contain transition-all duration-1000 group-hover:scale-105" />
                  <div className="absolute top-2 md:top-4 left-2 md:left-4 bg-orange-500 text-white text-[10px] md:text-xs font-bold px-2.5 md:px-3 py-1 rounded-full z-10">New</div>
                  <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-3 md:p-6 z-10">
                      <h3 className="text-white font-bold text-lg md:text-2xl mb-1">Kids Footwear</h3>
