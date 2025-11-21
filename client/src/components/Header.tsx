@@ -1,21 +1,46 @@
 import { Search, Heart, ShoppingCart, User, MapPin, ChevronDown, Menu, X, Bell, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/contexts/CartContext";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [location, setLocation] = useLocation();
+  
+  // Initialize search query from URL if present
+  const [searchQuery, setSearchQuery] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("q") || "";
+  });
+
   const { getCartCount } = useCart();
   const totalItems = getCartCount();
+
+  // Debounced auto-search
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (searchQuery.trim()) {
+        const newUrl = `/category/search?q=${encodeURIComponent(searchQuery)}`;
+        // Only update if we are not already on this exact URL to avoid loops
+        if (window.location.pathname + window.location.search !== newUrl) {
+          setLocation(newUrl);
+        }
+      } else if (searchQuery === "" && location === "/category/search") {
+         // Optional: if search is cleared, maybe go back or stay?
+         // For now, let's just stay on the search page with empty results or show all
+      }
+    }, 300); // 300ms delay
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchQuery, setLocation, location]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/category/search?q=${encodeURIComponent(searchQuery)}`;
+      setLocation(`/category/search?q=${encodeURIComponent(searchQuery)}`);
     }
   };
 

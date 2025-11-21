@@ -1,4 +1,4 @@
-import { useRoute, Link } from "wouter";
+import { useRoute, Link, useLocation } from "wouter";
 import { Header } from "@/components/Header";
 import { MegaMenu } from "@/components/MegaMenu";
 import { ProductCard } from "@/components/ProductCard";
@@ -8,6 +8,7 @@ import { products as allProducts } from "@/data/products";
 import { useState, useMemo } from "react";
 
 export default function CategoryPage() {
+  const [location] = useLocation(); // Subscribe to location changes
   const [match, params] = useRoute("/category/:slug");
   const slug = params?.slug ? decodeURIComponent(params.slug) : "all-products";
   const searchParams = new URLSearchParams(window.location.search);
