@@ -168,41 +168,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Second Advertisement - Brand Partnership */}
-        <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-3 md:py-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 p-5 md:p-8 group cursor-pointer hover:shadow-xl transition-all">
-              <div className="absolute top-0 right-0 text-6xl md:text-9xl opacity-10">👶</div>
-              <div className="relative z-10">
-                <span className="bg-white/30 text-white text-[9px] md:text-xs font-bold px-2 md:px-3 py-1 rounded-full uppercase">Sponsored</span>
-                <h3 className="text-xl md:text-3xl font-black text-white mt-3 mb-2">Premium Diapers</h3>
-                <p className="text-white/90 text-xs md:text-base mb-3 md:mb-4">Starting ₹9/diaper | Upto 12hr protection</p>
-                <div className="flex items-center gap-2">
-                  <Button size="sm" className="bg-white text-blue-600 hover:bg-yellow-300 hover:text-black font-bold text-xs md:text-sm">
-                    Explore →
-                  </Button>
-                  <span className="text-white/80 text-[10px] md:text-xs">🏆 #1 Trusted Brand</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 p-5 md:p-8 group cursor-pointer hover:shadow-xl transition-all">
-              <div className="absolute top-0 right-0 text-6xl md:text-9xl opacity-10">👗</div>
-              <div className="relative z-10">
-                <span className="bg-white/30 text-white text-[9px] md:text-xs font-bold px-2 md:px-3 py-1 rounded-full uppercase">New Launch</span>
-                <h3 className="text-xl md:text-3xl font-black text-white mt-3 mb-2">Designer Collection</h3>
-                <p className="text-white/90 text-xs md:text-base mb-3 md:mb-4">Exclusive ethnic wear for kids | Festive ready</p>
-                <div className="flex items-center gap-2">
-                  <Button size="sm" className="bg-white text-pink-600 hover:bg-yellow-300 hover:text-black font-bold text-xs md:text-sm">
-                    Shop Now →
-                  </Button>
-                  <span className="text-white/80 text-[10px] md:text-xs">✨ Limited Edition</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Featured Products */}
         <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-4 md:py-6">
           <div className="flex items-center justify-between mb-3 md:mb-4">
@@ -230,31 +195,6 @@ export default function Home() {
                 <ProductCard {...product} />
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Third Advertisement - Full Width Banner */}
-        <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-3 md:py-4">
-          <div className="relative overflow-hidden rounded-lg md:rounded-xl bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 p-4 md:p-6 shadow-lg hover:shadow-2xl transition-all cursor-pointer">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
-              <div className="flex items-center gap-3 md:gap-4 text-white">
-                <div className="text-4xl md:text-6xl">🎯</div>
-                <div>
-                  <p className="text-[10px] md:text-xs font-semibold uppercase tracking-wider opacity-90">Partner Offer</p>
-                  <h3 className="text-lg md:text-2xl lg:text-3xl font-black">Bank Cashback Deals</h3>
-                  <p className="text-xs md:text-sm opacity-90 mt-1">Get ₹500 instant discount on HDFC, ICICI & SBI cards</p>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row items-center gap-3">
-                <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg px-4 md:px-6 py-2 md:py-3">
-                  <div className="text-xl md:text-3xl font-black text-white">₹500</div>
-                  <div className="text-[9px] md:text-xs text-white/90 font-semibold">CASHBACK</div>
-                </div>
-                <Button className="bg-white text-green-600 hover:bg-yellow-300 hover:text-black font-bold text-xs md:text-sm px-5 md:px-8 py-2 md:py-3 rounded-full shadow-lg">
-                  Claim Offer
-                </Button>
-              </div>
-            </div>
           </div>
         </section>
 
