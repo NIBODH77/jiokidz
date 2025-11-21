@@ -78,6 +78,49 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Advertisement Banner */}
+        <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-3 md:py-4">
+          <div className="relative overflow-hidden rounded-lg md:rounded-xl shadow-lg bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 p-6 md:p-10 cursor-pointer group transition-all hover:shadow-2xl">
+            <div className="absolute top-0 right-0 w-32 h-32 md:w-48 md:h-48 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 md:w-36 md:h-36 bg-white/10 rounded-full blur-2xl"></div>
+            
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+              <div className="text-center md:text-left">
+                <div className="inline-block bg-yellow-400 text-black text-[10px] md:text-xs font-black px-3 py-1 rounded-full mb-2 md:mb-3 uppercase tracking-wider animate-pulse">
+                  Limited Time Offer
+                </div>
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-2 md:mb-3 drop-shadow-lg">
+                  MEGA CLEARANCE SALE
+                </h2>
+                <p className="text-base md:text-xl lg:text-2xl font-bold text-white/95 mb-3 md:mb-4">
+                  Upto <span className="text-yellow-300 text-2xl md:text-3xl">80% OFF</span> on Kids Fashion
+                </p>
+                <p className="text-xs md:text-sm text-white/80 mb-4 md:mb-6">
+                  ⏰ Hurry! Sale ends in 48 hours | 🎁 Free shipping on all orders
+                </p>
+                <Button className="bg-white text-purple-600 hover:bg-yellow-400 hover:text-black font-black px-6 md:px-10 py-3 md:py-4 text-sm md:text-lg rounded-full shadow-xl transform transition-all hover:scale-105">
+                  SHOP NOW →
+                </Button>
+              </div>
+              
+              <div className="flex gap-3 md:gap-4">
+                <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[90px]">
+                  <div className="text-2xl md:text-4xl font-black text-white">12</div>
+                  <div className="text-[10px] md:text-xs text-white/90 font-semibold">HOURS</div>
+                </div>
+                <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[90px]">
+                  <div className="text-2xl md:text-4xl font-black text-white">34</div>
+                  <div className="text-[10px] md:text-xs text-white/90 font-semibold">MINS</div>
+                </div>
+                <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[90px]">
+                  <div className="text-2xl md:text-4xl font-black text-white">56</div>
+                  <div className="text-[10px] md:text-xs text-white/90 font-semibold">SECS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Shop by Category - 4x4 Mobile & 4-per-screen Desktop */}
         <section className="max-w-[1400px] mx-auto px-0 md:px-4 py-4 md:py-6">
           <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 uppercase tracking-wide px-3 md:px-0">Shop by Category</h2>
@@ -170,6 +213,41 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Second Advertisement - Brand Partnership */}
+        <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-3 md:py-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 p-5 md:p-8 group cursor-pointer hover:shadow-xl transition-all">
+              <div className="absolute top-0 right-0 text-6xl md:text-9xl opacity-10">👶</div>
+              <div className="relative z-10">
+                <span className="bg-white/30 text-white text-[9px] md:text-xs font-bold px-2 md:px-3 py-1 rounded-full uppercase">Sponsored</span>
+                <h3 className="text-xl md:text-3xl font-black text-white mt-3 mb-2">Premium Diapers</h3>
+                <p className="text-white/90 text-xs md:text-base mb-3 md:mb-4">Starting ₹9/diaper | Upto 12hr protection</p>
+                <div className="flex items-center gap-2">
+                  <Button size="sm" className="bg-white text-blue-600 hover:bg-yellow-300 hover:text-black font-bold text-xs md:text-sm">
+                    Explore →
+                  </Button>
+                  <span className="text-white/80 text-[10px] md:text-xs">🏆 #1 Trusted Brand</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-pink-500 to-rose-600 p-5 md:p-8 group cursor-pointer hover:shadow-xl transition-all">
+              <div className="absolute top-0 right-0 text-6xl md:text-9xl opacity-10">👗</div>
+              <div className="relative z-10">
+                <span className="bg-white/30 text-white text-[9px] md:text-xs font-bold px-2 md:px-3 py-1 rounded-full uppercase">New Launch</span>
+                <h3 className="text-xl md:text-3xl font-black text-white mt-3 mb-2">Designer Collection</h3>
+                <p className="text-white/90 text-xs md:text-base mb-3 md:mb-4">Exclusive ethnic wear for kids | Festive ready</p>
+                <div className="flex items-center gap-2">
+                  <Button size="sm" className="bg-white text-pink-600 hover:bg-yellow-300 hover:text-black font-bold text-xs md:text-sm">
+                    Shop Now →
+                  </Button>
+                  <span className="text-white/80 text-[10px] md:text-xs">✨ Limited Edition</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Featured Products */}
         <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-4 md:py-6">
           <div className="flex items-center justify-between mb-3 md:mb-4">
@@ -197,6 +275,31 @@ export default function Home() {
                 <ProductCard {...product} />
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Third Advertisement - Full Width Banner */}
+        <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-3 md:py-4">
+          <div className="relative overflow-hidden rounded-lg md:rounded-xl bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 p-4 md:p-6 shadow-lg hover:shadow-2xl transition-all cursor-pointer">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
+              <div className="flex items-center gap-3 md:gap-4 text-white">
+                <div className="text-4xl md:text-6xl">🎯</div>
+                <div>
+                  <p className="text-[10px] md:text-xs font-semibold uppercase tracking-wider opacity-90">Partner Offer</p>
+                  <h3 className="text-lg md:text-2xl lg:text-3xl font-black">Bank Cashback Deals</h3>
+                  <p className="text-xs md:text-sm opacity-90 mt-1">Get ₹500 instant discount on HDFC, ICICI & SBI cards</p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center gap-3">
+                <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg px-4 md:px-6 py-2 md:py-3">
+                  <div className="text-xl md:text-3xl font-black text-white">₹500</div>
+                  <div className="text-[9px] md:text-xs text-white/90 font-semibold">CASHBACK</div>
+                </div>
+                <Button className="bg-white text-green-600 hover:bg-yellow-300 hover:text-black font-bold text-xs md:text-sm px-5 md:px-8 py-2 md:py-3 rounded-full shadow-lg">
+                  Claim Offer
+                </Button>
+              </div>
+            </div>
           </div>
         </section>
 
