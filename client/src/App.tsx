@@ -31,6 +31,7 @@ function Router() {
       <Route path="/orders" component={Orders} />
       <Route path="/order-success" component={OrderSuccess} />
       <Route path="/login" component={Login} />
+      <Route path="/register" component={Login} />
       <Route path="/profile" component={Profile} />
       <Route component={NotFound} />
     </Switch>

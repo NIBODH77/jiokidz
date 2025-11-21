@@ -11,16 +11,25 @@ import { useLocation } from "wouter";
 import { Mail, Lock, User, Phone, Eye, EyeOff, ShoppingBag } from "lucide-react";
 
 export default function Login() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [location, setLocation] = useLocation();
+  const [isLogin, setIsLogin] = useState(!location.includes("register"));
   const [showPassword, setShowPassword] = useState(false);
-  const [, setLocation] = useLocation();
   
+  // Update state when location changes (e.g. back button)
+  if (location.includes("register") && isLogin) setIsLogin(false);
+  if (!location.includes("register") && !isLogin) setIsLogin(true);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     name: "",
     phone: ""
   });
+
+  const toggleAuthMode = (login: boolean) => {
+    setIsLogin(login);
+    setLocation(login ? "/login" : "/register");
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,7 +112,7 @@ export default function Login() {
               {/* Toggle Tabs */}
               <div className="flex gap-2 mb-6 md:mb-8 bg-gray-100 p-1 rounded-lg">
                 <button
-                  onClick={() => setIsLogin(true)}
+                  onClick={() => toggleAuthMode(true)}
                   className={`flex-1 py-2 md:py-3 px-3 md:px-4 rounded-md font-bold text-xs md:text-sm transition-all duration-300 ${
                     isLogin
                       ? "bg-white text-primary shadow-sm"
@@ -113,7 +122,7 @@ export default function Login() {
                   LOGIN
                 </button>
                 <button
-                  onClick={() => setIsLogin(false)}
+                  onClick={() => toggleAuthMode(false)}
                   className={`flex-1 py-2 md:py-3 px-3 md:px-4 rounded-md font-bold text-xs md:text-sm transition-all duration-300 ${
                     !isLogin
                       ? "bg-white text-primary shadow-sm"
