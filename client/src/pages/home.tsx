@@ -82,7 +82,12 @@ export default function Home() {
 
         {/* Shop by Category - 4x4 Mobile & 4-per-screen Desktop */}
         <section className="max-w-[1400px] mx-auto px-0 md:px-4 py-4 md:py-6">
-          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 uppercase tracking-wide px-3 md:px-0">Shop by Category</h2>
+          <div className="flex items-center justify-between mb-4 md:mb-6 px-3 md:px-0">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800 uppercase tracking-wide">Shop by Category</h2>
+            <Link href="/category/all-categories">
+              <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+            </Link>
+          </div>
           
           {/* Mobile: 4x4 Swipeable Carousel */}
           <div className="md:hidden overflow-x-auto scrollbar-hide">
@@ -154,7 +159,12 @@ export default function Home() {
         {/* Top Brands */}
         <section className="bg-gray-50 py-4 md:py-6 my-3 md:my-4">
           <div className="max-w-[1400px] mx-auto px-3 md:px-4">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 text-center uppercase tracking-wide">Top Brands</h2>
+            <div className="flex items-center justify-between mb-3 md:mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800 uppercase tracking-wide">Top Brands</h2>
+              <Link href="/category/all-brands">
+                <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+              </Link>
+            </div>
             <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3">
               {topBrands.map((brand) => (
                 <Link key={brand.id} href={`/category/${brand.id}`} className="flex flex-col items-center gap-1.5 group cursor-pointer hover:-translate-y-0.5 transition-all duration-300">
@@ -304,7 +314,12 @@ export default function Home() {
 
         {/* Recently Viewed */}
         <section className="max-w-[1400px] mx-auto px-3 md:px-4 py-4 md:py-6">
-          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 uppercase">Recently Viewed</h2>
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-800 uppercase">Recently Viewed</h2>
+            <Link href="/category/all-products">
+              <Button variant="ghost" className="text-primary font-bold text-xs md:text-sm">View All</Button>
+            </Link>
+          </div>
           <div className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide pb-2">
             {products.slice(0, 8).map((product) => (
               <div key={product.id} className="shrink-0 w-40 md:w-56">
