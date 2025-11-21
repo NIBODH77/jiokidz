@@ -357,19 +357,43 @@ export default function Home() {
         <section className="bg-gray-50 py-6 md:py-8 my-4 md:my-6">
           <div className="max-w-[1400px] mx-auto px-3 md:px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8">Parenting Tips & Advice</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+            
+            {/* Mobile: Swipeable */}
+            <div className="md:hidden overflow-x-auto scrollbar-hide -mx-3">
+              <div className="flex gap-4 px-3 pb-2">
+                {[
+                  { title: "Best Toys for Brain Development", date: "Nov 15", excerpt: "Learn which toys help develop cognitive skills...", img: toyImg },
+                  { title: "Baby Sleep Essentials", date: "Nov 12", excerpt: "Tips and products for quality sleep...", img: babyBoyTraditional },
+                  { title: "Kids Fashion Tips", date: "Nov 10", excerpt: "Keep your kids stylish and comfortable...", img: girlFashionImg }
+                ].map((article, i) => (
+                  <div key={i} className="bg-white rounded-lg shadow-sm flex-shrink-0 w-[280px] overflow-hidden cursor-pointer">
+                    <div className="h-40 bg-gray-200 overflow-hidden">
+                      <img src={article.img} alt={article.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="p-4">
+                      <p className="text-xs text-primary font-semibold mb-1">{article.date}</p>
+                      <h3 className="font-bold text-gray-900 mb-2 text-sm">{article.title}</h3>
+                      <p className="text-xs text-gray-600 line-clamp-2">{article.excerpt}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop: Grid */}
+            <div className="hidden md:grid grid-cols-3 gap-5">
               {[
                 { title: "Best Toys for Brain Development", date: "Nov 15", excerpt: "Learn which toys help develop cognitive skills...", img: toyImg },
                 { title: "Baby Sleep Essentials", date: "Nov 12", excerpt: "Tips and products for quality sleep...", img: babyBoyTraditional },
                 { title: "Kids Fashion Tips", date: "Nov 10", excerpt: "Keep your kids stylish and comfortable...", img: girlFashionImg }
               ].map((article, i) => (
                 <div key={i} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all overflow-hidden cursor-pointer group">
-                  <div className="h-32 md:h-40 bg-gray-200 overflow-hidden">
+                  <div className="h-40 bg-gray-200 overflow-hidden">
                     <img src={article.img} alt={article.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <div className="p-3 md:p-4">
+                  <div className="p-4">
                     <p className="text-xs text-primary font-semibold mb-1">{article.date}</p>
-                    <h3 className="font-bold text-gray-900 mb-2 text-xs md:text-sm">{article.title}</h3>
+                    <h3 className="font-bold text-gray-900 mb-2 text-sm">{article.title}</h3>
                     <p className="text-xs text-gray-600 line-clamp-2">{article.excerpt}</p>
                   </div>
                 </div>

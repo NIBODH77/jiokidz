@@ -8,8 +8,16 @@ import { Link } from "wouter";
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const { getCartCount } = useCart();
   const totalItems = getCartCount();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      window.location.href = `/category/search?q=${encodeURIComponent(searchQuery)}`;
+    }
+  };
 
   const categories = [
     {
@@ -71,17 +79,19 @@ export function Header() {
           </Link>
 
           {/* Search Bar - Desktop Only */}
-          <div className="hidden lg:flex flex-1 max-w-xl relative">
+          <form onSubmit={handleSearch} className="hidden lg:flex flex-1 max-w-xl relative">
             <div className="relative w-full flex shadow-sm border border-gray-300 overflow-hidden group focus-within:border-primary transition-colors rounded">
               <Input 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-3 pr-10 py-2.5 border-none shadow-none focus-visible:ring-0 text-sm placeholder:text-gray-400" 
                 placeholder="Search for products..."
               />
-              <div className="bg-primary px-4 flex items-center justify-center cursor-pointer hover:bg-primary/90">
+              <button type="submit" className="bg-primary px-4 flex items-center justify-center cursor-pointer hover:bg-primary/90">
                 <Search className="h-4 w-4 text-white" />
-              </div>
+              </button>
             </div>
-          </div>
+          </form>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-2 lg:gap-4 text-[11px] font-medium text-gray-700">
@@ -183,17 +193,19 @@ export function Header() {
         </div>
 
         {/* Mobile Search */}
-        <div className="lg:hidden mt-2 relative">
+        <form onSubmit={handleSearch} className="lg:hidden mt-2 relative">
           <div className="relative w-full flex shadow-sm border border-gray-300 overflow-hidden rounded">
             <Input 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-3 pr-10 py-2.5 h-9 border-none shadow-none focus-visible:ring-0 text-sm placeholder:text-gray-400" 
               placeholder="Search for products..."
             />
-            <div className="bg-primary px-3 flex items-center justify-center cursor-pointer">
+            <button type="submit" className="bg-primary px-3 flex items-center justify-center cursor-pointer">
               <Search className="h-4 w-4 text-white" />
-            </div>
+            </button>
           </div>
-        </div>
+        </form>
 
         {/* Mobile Menu with Submenus */}
         {mobileMenuOpen && (

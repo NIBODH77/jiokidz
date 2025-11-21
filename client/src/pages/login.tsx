@@ -15,7 +15,6 @@ export default function Login() {
   const [isLogin, setIsLogin] = useState(!location.includes("register"));
   const [showPassword, setShowPassword] = useState(false);
   
-  // Update state when location changes (e.g. back button)
   if (location.includes("register") && isLogin) setIsLogin(false);
   if (!location.includes("register") && !isLogin) setIsLogin(true);
 
@@ -33,7 +32,11 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Demo: Just redirect to home
+    setLocation("/");
+  };
+
+  const handleGoogleLogin = () => {
+    console.log("Google login initiated");
     setLocation("/");
   };
 
@@ -133,9 +136,30 @@ export default function Login() {
                 </button>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-5">
+              {/* Google Sign In - Primary Option */}
+              <Button
+                type="button"
+                onClick={handleGoogleLogin}
+                className="w-full h-12 mb-6 bg-white hover:bg-gray-50 text-gray-800 border-2 border-gray-300 font-semibold shadow-sm"
+              >
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4="
+                  alt="Google"
+                  className="w-5 h-5 mr-3"
+                />
+                Continue with Google
+              </Button>
+
+              <div className="relative mb-6">
+                <Separator className="my-0" />
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-xs text-gray-500 font-medium">
+                  OR
+                </span>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {!isLogin && (
-                  <div className="space-y-1.5 md:space-y-2 animate-fade-in">
+                  <div className="space-y-2 animate-fade-in">
                     <Label htmlFor="name" className="text-gray-700 font-medium text-xs md:text-sm">
                       Full Name
                     </Label>
@@ -155,7 +179,7 @@ export default function Login() {
                   </div>
                 )}
 
-                <div className="space-y-1.5 md:space-y-2">
+                <div className="space-y-2">
                   <Label htmlFor="email" className="text-gray-700 font-medium text-xs md:text-sm">
                     Email Address
                   </Label>
@@ -174,33 +198,31 @@ export default function Login() {
                   </div>
                 </div>
 
-                {!isLogin && (
-                  <div className="space-y-2 animate-fade-in">
-                    <Label htmlFor="phone" className="text-gray-700 font-medium text-xs md:text-sm">
-                      Phone Number
-                    </Label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="10-digit mobile number"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="pl-10 h-10 md:h-12 border-gray-300 text-xs md:text-sm focus:border-primary"
-                        required={!isLogin}
-                      />
-                    </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-gray-700 font-medium text-xs md:text-sm">
+                    Phone Number
+                  </Label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 md:h-5 w-4 md:w-5 text-gray-400" />
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="10-digit mobile number"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="pl-10 h-10 md:h-12 border-gray-300 text-xs md:text-sm focus:border-primary"
+                      required
+                    />
                   </div>
-                )}
+                </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="password" className="text-gray-700 font-medium text-xs md:text-sm">
                     Password
                   </Label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 md:h-5 w-4 md:w-5 text-gray-400" />
                     <Input
                       id="password"
                       name="password"
@@ -208,7 +230,7 @@ export default function Login() {
                       placeholder="Enter your password"
                       value={formData.password}
                       onChange={handleInputChange}
-                      className="pl-10 pr-10 h-12 border-gray-300 focus:border-primary"
+                      className="pl-10 pr-10 h-10 md:h-12 border-gray-300 focus:border-primary text-xs md:text-sm"
                       required
                     />
                     <button
@@ -217,9 +239,9 @@ export default function Login() {
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
                     >
                       {showPassword ? (
-                        <EyeOff className="h-5 w-5" />
+                        <EyeOff className="h-4 md:h-5 w-4 md:w-5" />
                       ) : (
-                        <Eye className="h-5 w-5" />
+                        <Eye className="h-4 md:h-5 w-4 md:w-5" />
                       )}
                     </button>
                   </div>
@@ -229,7 +251,7 @@ export default function Login() {
                   <div className="flex justify-end">
                     <a
                       href="#"
-                      className="text-sm text-primary hover:underline font-medium"
+                      className="text-xs md:text-sm text-primary hover:underline font-medium"
                     >
                       Forgot Password?
                     </a>
@@ -238,44 +260,11 @@ export default function Login() {
 
                 <Button
                   type="submit"
-                  className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold text-base shadow-md hover:shadow-lg transition-all duration-300"
+                  className="w-full h-11 md:h-12 bg-primary hover:bg-primary/90 text-white font-bold text-sm md:text-base shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   {isLogin ? "LOGIN" : "CREATE ACCOUNT"}
                 </Button>
               </form>
-
-              <div className="mt-6">
-                <div className="relative">
-                  <Separator className="my-6" />
-                  <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-xs text-gray-500 font-medium">
-                    OR
-                  </span>
-                </div>
-
-                <div className="space-y-3 mt-6">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="w-full h-12 border-gray-300 hover:bg-gray-50 font-semibold"
-                  >
-                    <img
-                      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4="
-                      alt="Google"
-                      className="w-5 h-5 mr-2"
-                    />
-                    Continue with Google
-                  </Button>
-
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="w-full h-12 border-gray-300 hover:bg-gray-50 font-semibold"
-                  >
-                    <Phone className="h-5 w-5 mr-2 text-primary" />
-                    Continue with Phone
-                  </Button>
-                </div>
-              </div>
 
               <p className="text-xs text-gray-500 text-center mt-6">
                 By continuing, you agree to JioKidz's{" "}

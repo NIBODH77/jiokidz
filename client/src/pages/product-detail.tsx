@@ -86,20 +86,20 @@ export default function ProductDetail() {
       <Header />
       <MegaMenu />
       
-      <main className="max-w-7xl mx-auto px-3 md:px-6 py-4 md:py-6">
+      <main className="max-w-7xl mx-auto px-3 md:px-4 lg:px-6 py-4 md:py-6">
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 text-xs text-gray-500 mb-4 overflow-x-auto scrollbar-hide">
+        <div className="flex items-center gap-2 text-[10px] md:text-xs text-gray-500 mb-3 md:mb-4 overflow-x-auto scrollbar-hide">
           <Link href="/" className="hover:text-primary whitespace-nowrap">Home</Link>
           <ChevronRight className="h-3 w-3 flex-shrink-0" />
           <Link href="/category/boy-fashion" className="hover:text-primary whitespace-nowrap">Boy Fashion</Link>
           <ChevronRight className="h-3 w-3 flex-shrink-0" />
-          <span className="font-medium text-gray-800 truncate">{product.title}</span>
+          <span className="font-medium text-gray-800 truncate max-w-[150px] md:max-w-none">{product.title}</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4 lg:gap-6">
           {/* Images Section - Left */}
-          <div className="lg:col-span-5 space-y-3">
-            <div className="bg-white rounded-xl shadow-sm p-3 md:p-4 sticky top-20">
+          <div className="lg:col-span-5 space-y-2 md:space-y-3">
+            <div className="bg-white rounded-lg md:rounded-xl shadow-sm p-2 md:p-3 lg:p-4 sticky top-20">
               <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden mb-3 group">
                 <img 
                   src={product.images[selectedImage]} 
@@ -380,6 +380,61 @@ export default function ProductDetail() {
                     );
                   })}
                 </div>
+              </div>
+
+              {/* Write Review Form */}
+              <div className="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                <h3 className="font-bold text-gray-800 mb-4 text-sm">Write Your Review</h3>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  alert("Thank you for your review!");
+                }} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Your Rating</label>
+                    <div className="flex gap-2">
+                      {[1, 2, 3, 4, 5].map((rating) => (
+                        <button
+                          key={rating}
+                          type="button"
+                          className="hover:scale-110 transition-transform"
+                        >
+                          <Star className="h-6 w-6 text-gray-300 hover:text-yellow-400 hover:fill-yellow-400" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Review Title</label>
+                    <Input 
+                      placeholder="Summarize your experience" 
+                      className="w-full"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Your Review</label>
+                    <textarea 
+                      placeholder="Share your thoughts about this product..."
+                      className="w-full min-h-[100px] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                    <Input 
+                      placeholder="Enter your name" 
+                      className="w-full"
+                      required
+                    />
+                  </div>
+                  
+                  <Button type="submit" className="bg-primary hover:bg-primary/90 text-white font-bold">
+                    Submit Review
+                  </Button>
+                </form>
               </div>
 
               <div>
