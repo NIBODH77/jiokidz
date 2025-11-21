@@ -44,15 +44,13 @@ export function ProductCard({ id = "1", image, title, brand, price, originalPric
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-shimmer bg-[length:400%_100%]" />
         )}
-        <div className="absolute inset-0 p-4 flex items-center justify-center">
-          <img 
-            src={image} 
-            alt={title}
-            loading="lazy"
-            onLoad={() => setImageLoaded(true)}
-            className={`max-w-full max-h-full object-contain group-hover:scale-110 transition-all duration-700 ease-out ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-          />
-        </div>
+        <img 
+          src={image} 
+          alt={title}
+          loading="lazy"
+          onLoad={() => setImageLoaded(true)}
+          className={`w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        />
         {clubPrice && (
            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 via-black/60 to-transparent backdrop-blur-sm p-3 flex justify-center items-center gap-1.5 text-xs text-white font-bold opacity-0 group-hover:opacity-100 transition-all duration-500">
               <span>Club Price:</span>
