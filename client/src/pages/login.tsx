@@ -55,7 +55,7 @@ export default function Login() {
       <main className="w-full mx-auto px-3 md:px-4 py-4 md:py-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 max-w-6xl mx-auto items-start lg:items-center min-h-[calc(100vh-180px)]">
           {/* Left Side - Branding */}
-          <div className="hidden lg:flex space-y-4 md:space-y-6 animate-fade-in flex-col justify-center order-1">
+          <div className="hidden lg:flex space-y-4 md:space-y-6 flex-col justify-center order-1">
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 md:p-12 rounded-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <ShoppingBag className="h-12 w-12 text-primary" />
@@ -110,7 +110,7 @@ export default function Login() {
           </div>
 
           {/* Right Side - Login/Signup Form */}
-          <div className="w-full max-w-md mx-auto animate-fade-in animation-delay-200 order-2">
+          <div className="w-full max-w-md mx-auto order-2">
             <Card className="p-4 md:p-6 lg:p-8 shadow-lg border-gray-200 rounded-xl bg-white">
               {/* Toggle Tabs */}
               <div className="flex gap-2 mb-6 md:mb-8 bg-gray-100 p-1 rounded-lg">
@@ -159,7 +159,7 @@ export default function Login() {
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 {!isLogin && (
-                  <div className="space-y-2 animate-fade-in">
+                  <div className="space-y-2">
                     <Label htmlFor="name" className="text-gray-700 font-medium text-xs md:text-sm">
                       Full Name
                     </Label>
