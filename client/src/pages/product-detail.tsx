@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { MegaMenu } from "@/components/MegaMenu";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import { ChevronRight, Heart, Share2, Star, ShoppingCart, Truck, ShieldCheck, RotateCcw, Gift, Award, Clock, Zap } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
