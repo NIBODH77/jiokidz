@@ -87,9 +87,9 @@ export default function ProductDetail() {
       <Header />
       <MegaMenu />
       
-      <main className="max-w-7xl mx-auto px-3 md:px-4 lg:px-6 py-4 md:py-6">
+      <main className="w-full mx-auto px-2 md:px-3 lg:px-4 py-3 md:py-4">
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 text-[10px] md:text-xs text-gray-500 mb-3 md:mb-4 overflow-x-auto scrollbar-hide">
+        <div className="flex items-center gap-2 text-[10px] md:text-xs text-gray-500 mb-3 md:mb-4 overflow-x-auto scrollbar-hide max-w-7xl mx-auto">
           <Link href="/" className="hover:text-primary whitespace-nowrap">Home</Link>
           <ChevronRight className="h-3 w-3 flex-shrink-0" />
           <Link href="/category/boy-fashion" className="hover:text-primary whitespace-nowrap">Boy Fashion</Link>
@@ -97,9 +97,9 @@ export default function ProductDetail() {
           <span className="font-medium text-gray-800 truncate max-w-[150px] md:max-w-none">{product.title}</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4 max-w-7xl mx-auto">
           {/* Images Section - Left */}
-          <div className="lg:col-span-5 space-y-2 md:space-y-3">
+          <div className="space-y-2 md:space-y-3">
             <div className="bg-white rounded-lg md:rounded-xl shadow-sm p-2 md:p-3 lg:p-4 sticky top-20">
               <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg overflow-hidden mb-3 group">
                 <img 
@@ -141,7 +141,7 @@ export default function ProductDetail() {
           </div>
 
           {/* Product Info Section - Right */}
-          <div className="lg:col-span-7 space-y-4">
+          <div className="space-y-4">
             <div className="bg-white rounded-xl shadow-sm p-4 md:p-6">
               {/* Brand & Title */}
               <div className="mb-4">

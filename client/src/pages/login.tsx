@@ -52,10 +52,10 @@ export default function Login() {
       <Header />
       <MegaMenu />
       
-      <main className="max-w-[1400px] mx-auto px-3 md:px-4 py-4 md:py-8 lg:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 items-center min-h-[calc(100vh-200px)]">
+      <main className="w-full mx-auto px-3 md:px-4 py-4 md:py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 max-w-6xl mx-auto items-start lg:items-center min-h-[calc(100vh-180px)]">
           {/* Left Side - Branding */}
-          <div className="hidden lg:flex space-y-4 md:space-y-6 animate-fade-in flex-col justify-center">
+          <div className="hidden lg:flex space-y-4 md:space-y-6 animate-fade-in flex-col justify-center order-1">
             <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 md:p-12 rounded-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <ShoppingBag className="h-12 w-12 text-primary" />
@@ -110,8 +110,8 @@ export default function Login() {
           </div>
 
           {/* Right Side - Login/Signup Form */}
-          <div className="w-full max-w-md mx-auto animate-fade-in animation-delay-200 order-first lg:order-last">
-            <Card className="p-4 md:p-8 shadow-lg border-gray-200 rounded-xl">
+          <div className="w-full max-w-md mx-auto animate-fade-in animation-delay-200 order-2">
+            <Card className="p-4 md:p-6 lg:p-8 shadow-lg border-gray-200 rounded-xl bg-white">
               {/* Toggle Tabs */}
               <div className="flex gap-2 mb-6 md:mb-8 bg-gray-100 p-1 rounded-lg">
                 <button
@@ -279,14 +279,14 @@ export default function Login() {
             </Card>
 
             {/* Mobile Trust Badges */}
-            <div className="lg:hidden mt-6 grid grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
-                <div className="text-2xl font-bold text-primary">10L+</div>
-                <div className="text-xs text-gray-600 mt-1">Happy Customers</div>
+            <div className="lg:hidden mt-4 md:mt-6 grid grid-cols-2 gap-3 md:gap-4">
+              <div className="bg-white p-3 md:p-4 rounded-lg border border-gray-200 text-center shadow-sm">
+                <div className="text-xl md:text-2xl font-bold text-primary">10L+</div>
+                <div className="text-[10px] md:text-xs text-gray-600 mt-1">Happy Customers</div>
               </div>
-              <div className="bg-white p-4 rounded-lg border border-gray-200 text-center">
-                <div className="text-2xl font-bold text-primary">15 Days</div>
-                <div className="text-xs text-gray-600 mt-1">Easy Returns</div>
+              <div className="bg-white p-3 md:p-4 rounded-lg border border-gray-200 text-center shadow-sm">
+                <div className="text-xl md:text-2xl font-bold text-primary">15 Days</div>
+                <div className="text-[10px] md:text-xs text-gray-600 mt-1">Easy Returns</div>
               </div>
             </div>
           </div>
